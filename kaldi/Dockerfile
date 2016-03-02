@@ -2,7 +2,6 @@ FROM nvidia/cuda:devel-ubuntu14.04
 MAINTAINER Vincent Jousse <vincent@jousse.org>
 
 RUN apt-get update && apt-get install -y \
-    htop \
     make \
     gcc \
     subversion \
@@ -11,8 +10,6 @@ RUN apt-get update && apt-get install -y \
     libtool \
     libatlas-base-dev \
     liblapack-pic \
-    tig \
-    git \
     python3-pip \
     libavcodec54 \
     libavdevice53 \
@@ -21,10 +18,6 @@ RUN apt-get update && apt-get install -y \
     libpostproc52 \
     libswscale2 \
     libglpk-dev \
-    sox \
-    openjdk-7-jre \
-    supervisor \
-    sqlite3 \
     libblas3gf \
     libblas-doc \
     libblas-dev \
@@ -37,8 +30,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libsqlite3-dev \
     libbz2-dev \
-    wget \
-    libav-tools
+    wget
 
 ADD kaldi /opt/kaldi
 
