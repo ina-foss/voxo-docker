@@ -37,7 +37,8 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libsqlite3-dev \
     libbz2-dev \
-    wget
+    wget \
+    libav-tools
 
 ADD kaldi /opt/kaldi
 
