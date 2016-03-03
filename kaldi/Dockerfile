@@ -8,9 +8,9 @@ RUN apt-get update && apt-get install -y \
     automake \
     g++ \
     libtool \
+    git \
     libatlas-base-dev \
     liblapack-pic \
-    python3-pip \
     libavcodec54 \
     libavdevice53 \
     libavformat54 \
@@ -28,7 +28,6 @@ RUN apt-get update && apt-get install -y \
     libgstreamer1.0-dev \
     glpk-utils \
     libssl-dev \
-    libsqlite3-dev \
     libbz2-dev \
     wget
 
