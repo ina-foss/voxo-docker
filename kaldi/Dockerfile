@@ -39,7 +39,4 @@ RUN cd /opt && \
     ./install_portaudio.sh
 
 RUN cd /opt/kaldi/src && ./configure --shared && \
-    make -j 8 depend && make -j 8 && \
-    cd /opt/kaldi/src/online && make -j 8 depend && make -j 8 && \
-    cd /opt/kaldi/src/gst-plugin && make -j 8 depend && make -j 8 && \
-    cd /opt 
+    make -j 8 depend && make -j 8
