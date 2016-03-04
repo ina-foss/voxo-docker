@@ -3,7 +3,9 @@ FROM voxolab/kaldi-lium
 MAINTAINER Vincent Jousse <vincent@jousse.org>
 
 RUN apt-get update && apt-get install -y \
-    libav-tools
+    libav-tools \
+    sox \
+    openjdk-7-jre
 
 ADD voxo-fast /opt/voxo-fast
 
