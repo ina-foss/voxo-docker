@@ -40,3 +40,6 @@ RUN cd /opt && \
 
 RUN cd /opt/kaldi/src && ./configure --shared && \
     make -j 8 depend && make -j 8
+
+RUN cd /opt/kaldi && find . -name "*.cc" -delete && \
+    find . -name "*.o" -delete
