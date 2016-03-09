@@ -8,8 +8,10 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-dev \
     git-core \
-    build-essential 
+    build-essential \
+    libav-tools
 
+RUN ln -s /usr/bin/avconv /usr/bin/ffmpeg
 
 RUN sed -i '/-e git.*/c\-e /opt/voxo-lib' /opt/voxo-dashboard/requirements.txt
 
