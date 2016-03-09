@@ -15,5 +15,5 @@ else
     cd ..
 fi
 
-docker build -t voxolab/voxo-dashboard .
+docker build -t voxolab/dashboard .
 
