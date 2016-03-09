@@ -1,4 +1,5 @@
 kaldi/kaldi
 voxo-fast/voxo-fast
 voxo-dashboard/voxo-dashboard
+voxo-dashboard/voxo-lib
 *.docker
