@@ -18,4 +18,10 @@ RUN cd /opt/voxo-dashboard && \
 
 RUN sed -i '/basedir =.*/c\basedir = "/mnt/"' /opt/voxo-dashboard/config.py
 RUN sed -i '/PROJECT_DIR =.*/c\PROJECT_DIR = "/opt/voxo-dashboard"' /opt/voxo-dashboard/wsgi_prod.py
+RUN sed -i '/activate_this.*/d' /opt/voxo-dashboard/wsgi_prod.py
 RUN sed -i '/ROOTDIR=.*/c\ROOTDIR=/opt/voxo-dashboard/' /opt/voxo-dashboard/gunicorn_start.sh
+RUN sed -i '/source .\/env\/bin\/activate.*/c\' /opt/voxo-dashboard/gunicorn_start.sh
+RUN sed -ri 's/(.*).\/env\/bin\/gunicorn(.*)/\1\/usr\/local\/bin\/gunicorn\2/g' /opt/voxo-dashboard/gunicorn_start.sh
+
+RUN sed -i '/USER=asr.*/c\USER=root' /opt/voxo-dashboard/gunicorn_start.sh
+RUN sed -i '/GROUP=asr.*/c\GROUP=root' /opt/voxo-dashboard/gunicorn_start.sh
