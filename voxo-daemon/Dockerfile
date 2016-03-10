@@ -7,6 +7,7 @@ ADD voxo-lib /opt/voxo-lib
 RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-dev \
+    python3-lxml \
     git-core \
     build-essential \
     libav-tools \
