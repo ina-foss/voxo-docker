@@ -1,8 +1,12 @@
-FROM ubuntu:14.04
+FROM voxolab/voxo-fast
 MAINTAINER Vincent Jousse <vincent@jousse.org>
 
 ADD voxo-daemon /opt/voxo-daemon
 ADD voxo-lib /opt/voxo-lib
+
+# If you want to decode some french, you should include the
+# recasing script
+ADD majAuto /opt/majAuto
 
 RUN apt-get update && apt-get install -y \
     python3-pip \
@@ -19,3 +23,5 @@ RUN sed -i '/-e git.*/c\-e /opt/voxo-lib' /opt/voxo-daemon/requirements.txt
 
 RUN cd /opt/voxo-daemon && \
     pip3 install -r requirements.txt
+
+
