@@ -4,3 +4,5 @@ voxo-dashboard/voxo-dashboard
 voxo-lib/
 voxo-daemon/voxo-daemon
 *.docker
+voxo-daemon/majAuto/
+voxo-daemon/output/
