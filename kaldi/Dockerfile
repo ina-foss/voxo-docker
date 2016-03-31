@@ -41,5 +41,11 @@ RUN cd /opt && \
 RUN cd /opt/kaldi/src && ./configure --shared && \
     make -j 8 depend && make -j 8
 
+RUN cd /opt/kaldi/src/online && \
+    make -j 8 depend && make -j 8
+
+RUN cd /opt/kaldi/src/gst-plugin.lium.v2 && \
+    make -j 8 depend && make -j 8
+
 RUN cd /opt/kaldi && find . -name "*.cc" -delete && \
     find . -name "*.o" -delete
