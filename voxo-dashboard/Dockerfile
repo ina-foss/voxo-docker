@@ -27,3 +27,6 @@ RUN sed -ri 's/(.*).\/env\/bin\/gunicorn(.*)/\1\/usr\/local\/bin\/gunicorn\2/g' 
 
 RUN sed -i '/USER=asr.*/c\USER=root' /opt/voxo-dashboard/gunicorn_start.sh
 RUN sed -i '/GROUP=asr.*/c\GROUP=root' /opt/voxo-dashboard/gunicorn_start.sh
+
+RUN locale-gen en_GB && \
+    locale-gen en_GB.utf8
