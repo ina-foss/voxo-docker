@@ -25,3 +25,13 @@ RUN cd /opt/voxo-daemon && \
     pip3 install -r requirements.txt
 
 
+RUN locale-gen en_GB && \
+    locale-gen en_GB.utf8 && \
+    locale-gen en_US && \
+    locale-gen en_US.utf8
+
+RUN sed -i '/ROOTDIR=.*/c\ROOTDIR=/opt/voxo-daemon/' /opt/voxo-daemon/decode_daemon_start.sh
+
+
+RUN sed -i '/USER=asr.*/c\USER=root' /opt/voxo-daemon/decode_daemon_start.sh
+RUN sed -i '/GROUP=asr.*/c\GROUP=root' /opt/voxo-daemon/decode_daemon_start.sh
