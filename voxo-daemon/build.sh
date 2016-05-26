@@ -1,10 +1,10 @@
 if [ ! -d "voxo-daemon" ]; then
     git clone git@bitbucket.org:vjousse/voxo-daemon.git
-    git checkout fast
+    git checkout fast-multi-model
     git pull
 else
     cd voxo-daemon
-    git checkout fast
+    git checkout fast-multi-model
     git pull
     cd ..
 fi
@@ -18,5 +18,6 @@ else
     cd ..
 fi
 
-docker build -t voxolab/daemon .
+docker build -t voxolab/daemon-multi-model .
 
+#docker save voxolab/daemon > /opt/asr/docker/images/voxo-daemon.docker

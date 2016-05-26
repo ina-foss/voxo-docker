@@ -8,6 +8,9 @@ ADD voxo-lib /opt/voxo-lib
 # recasing script
 ADD majAuto /opt/majAuto
 
+ADD xvfb /etc/init.d/xvfb
+RUN chmod +x /etc/init.d/xvfb
+
 RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-dev \
@@ -15,9 +18,13 @@ RUN apt-get update && apt-get install -y \
     git-core \
     build-essential \
     libav-tools \
-    sox
+    sox \
+    xvfb \
+    mono-complete
 
 RUN ln -s /usr/bin/avconv /usr/bin/ffmpeg
+
+RUN update-rc.d xvfb defaults
 
 RUN sed -i '/-e git.*/c\-e /opt/voxo-lib' /opt/voxo-daemon/requirements.txt
 
