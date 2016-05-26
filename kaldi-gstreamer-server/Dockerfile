@@ -24,3 +24,6 @@ RUN apt-get update && apt-get install -y  \
     pip install tornado
 
 COPY start.sh stop.sh /opt/
+COPY vera.yam /opt/vera.yam
+
+COPY kaldigstserver /opt/
