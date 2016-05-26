@@ -6,3 +6,5 @@ voxo-daemon/voxo-daemon
 *.docker
 voxo-daemon/majAuto/
 voxo-daemon/output/
+kaldi-gst/kaldi/
+voxo-align-daemon/voxo-daemon/
