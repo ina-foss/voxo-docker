@@ -1,0 +1,43 @@
+# You have to download TEDLIUM "online nnet2" models in order to use this sample
+# Run download-tedlium-nnet2.sh in 'test/models' to download them.
+use-lium: True
+decoder:
+   fst: /home/asr/live/modeles-paul/grapheVera/HCLG.fst.map
+   useMap: true
+   model: /home/asr/live/modeles-paul/modeleGlis/final.mdl
+   nnet: /home/asr/live/modeles-paul/modeleGlis
+   word-syms: /home/asr/live/modeles-paul/grapheVera/words.txt.utf8
+   class-frame-counts: /home/asr/live/modeles-paul/modeleGlis/ali_train_pdf.counts
+   acoustic-scale: 0.08
+   endpoint-silence-phones: "1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:17:18:19:20:21:22:23:24:25"
+   word-info-ali: /home/asr/live/modeles-paul/grapheVera/phones/word_boundary.int
+   beam: 11
+   max-active: 11000
+   res-phi: 160039
+   rescore: /home/asr/live/modeles-paul/3g.fsm/G.sort.map.fst
+   res-max-active: 5000
+   saussage-size: 0
+   res-fudge: 1.2 
+
+out-dir: tmp
+
+use-vad: False
+silence-timeout: 50
+
+# Just a sample post-processor that appends "." to the hypothesis
+#post-processor: perl -npe 'BEGIN {use IO::Handle; STDOUT->autoflush(1);} s/(.*)/\1./;'
+logging:
+    version : 1
+    disable_existing_loggers: False
+    formatters:
+        simpleFormater:
+            format: '%(asctime)s - %(levelname)7s: %(name)10s: %(message)s'
+            datefmt: '%Y-%m-%d %H:%M:%S'
+    handlers:
+        console:
+            class: logging.StreamHandler
+            formatter: simpleFormater
+            level: DEBUG
+    root:
+        level: DEBUG
+        handlers: [console]
