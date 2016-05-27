@@ -25,10 +25,12 @@ while getopts "h?m:p:y:" opt; do
 done
 
 #yaml file must be specified
-if [ "$YAML" == "" ] ; then
-  usage;
-  exit 1;
-fi;
+#if [ "$YAML" == "" ] ; then
+#  usage;
+#  exit 1;
+#fi;
+
+YAML=/opt/vera.yam
 
 
 if [ "$MASTER" == "localhost" ] ; then
@@ -37,6 +39,6 @@ if [ "$MASTER" == "localhost" ] ; then
 fi
 
 #start worker and connect it to the master
-export GST_PLUGIN_PATH=/opt/gst-kaldi-nnet2-online/src/:/opt/kaldi/src/gst-plugin/
+export GST_PLUGIN_PATH=/opt/kaldi/src/gst-plugin/
 
-python /opt/kaldigstserver/worker.py -c $YAML -u ws://$MASTER:$PORT/worker/ws/speech 2>> /opt/worker.log &
+python /opt/kaldigstserver/worker.py -c $YAML -u ws://$MASTER:$PORT/worker/ws/speech

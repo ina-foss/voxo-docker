@@ -10,4 +10,4 @@ else
 fi
 cd ..
 
-docker build -t voxolab/kaldi-gst-lium .
+docker build -t voxolab/kaldi-gst-lium-debug .

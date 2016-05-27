@@ -1,4 +1,4 @@
-FROM voxolab/kaldi-gst-lium
+FROM voxolab/kaldi-lium-5039
 
 MAINTAINER Vincent Jousse <vincent@jousse.org>
 
@@ -23,7 +23,9 @@ RUN apt-get update && apt-get install -y  \
     pip install ws4py==0.3.2 && \
     pip install tornado
 
+ENV LD_LIBRARY_PATH /usr/local/cuda/lib64/stubs:$LD_LIBRARY_PATH
+
 COPY start.sh stop.sh /opt/
 COPY vera.yam /opt/vera.yam
 
-COPY kaldigstserver /opt/
+COPY kaldigstserver /opt/kaldigstserver/

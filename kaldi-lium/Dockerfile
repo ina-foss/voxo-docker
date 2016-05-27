@@ -29,9 +29,14 @@ RUN apt-get update && apt-get install -y \
     glpk-utils \
     libssl-dev \
     libbz2-dev \
-    wget
+    wget \
+    libasound2 \
+    libasound2-dev
 
-ADD kaldi /opt/kaldi
+ADD Kaldi-5039 /opt/kaldi
+
+RUN rm /opt/kaldi/src/gst-plugin && \
+    ln -s /opt/kaldi/src/gst-plugin.v2 /opt/kaldi/src/gst-plugin
 
 RUN cd /opt && \
     cd /opt/kaldi/tools && \
@@ -44,10 +49,5 @@ RUN cd /opt/kaldi/src && ./configure --shared && \
 RUN cd /opt/kaldi/src/online && \
     make -j 8 depend && make -j 8
 
-RUN cd /opt/kaldi/src/gst-plugin.lium.v2 && \
+RUN cd /opt/kaldi/src/gst-plugin && \
     make -j 8 depend && make -j 8
-
-#RUN cd /opt/kaldi && find . -name "*.cc" -delete && \
-#    find . -name "*.o" -delete
-
-RUN cd /opt/kaldi && find . -name "*.o" -delete

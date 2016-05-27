@@ -1,1 +1,1 @@
-docker build -t voxolab/kaldi-gstreamer-server .
+docker build -t voxolab/kaldi-gstreamer-server-debug .

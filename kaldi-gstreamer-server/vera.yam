@@ -19,6 +19,48 @@ decoder:
    saussage-size: 0
    res-fudge: 1.2 
 
+
+#   cmn-init: "14.7791 15.0313 15.3259 15.2011 14.3992 13.4867 13.1202 13.3058 13.6603 14.0049 14.3192 14.4548 14.7247 15.2015 14.7838 14.9934 15.598 16.0574 15.0843 13.686 12.8459 13.3027 12.7838"
+
+
+   #rule1 times out after 5 seconds of silence, even if we decoded nothing.
+   #
+   endpoint-rule1-must-contain-nonsilence: false
+   endpoint-rule1-min-trailing-silence: 5.0
+   endpoint-rule1-min-utterance-length: 0
+
+   #rule2 times out after 1 second of silence if we reached the final-state
+   #with good probability (relative_cost < 2.0) after decoding something.
+   #
+   endpoint-rule2-min-trailing-silence: 0.5
+   endpoint-rule2-max-relative-cost: 2
+   endpoint-rule2-min-utterance-length: 0
+
+   #rule3 times out after 2.0 seconds of silence if we reached the final-state
+   #with OK probability (relative_cost < 8.0) after decoding something
+   #
+   endpoint-rule3-min-trailing-silence: 1.0
+   endpoint-rule3-max-relative-cost: 8
+   endpoint-rule3-min-utterance-length: 0
+
+   #rule4 times out after 3.0 seconds of silence after decoding something,
+   #even if we did not reach a final-state at all.
+   #  a partir de 6 secondes on coupe des une fin de ... assez marquee
+   endpoint-rule4-min-trailing-silence: 0.0
+   endpoint-rule4-min-utterance-length: 4.0
+   endpoint-rule4-max-relative-cost: 6
+
+   #rule 6 a partir de 12 on coupe des que l'on peut				     
+   endpoint-rule6-min-trailing-silence: 0.0
+   endpoint-rule6-max-relative-cost: 8
+   endpoint-rule6-min-utterance-length: 9
+
+
+   #rule5 times out after the utterance is 14 seconds long, regardless of
+   #anything else.
+   endpoint-rule5-min-trailing-silence: 0.0
+   endpoint-rule5-min-utterance-length: 12.0
+
 out-dir: tmp
 
 use-vad: False
