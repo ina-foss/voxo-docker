@@ -1,11 +1,15 @@
 kaldi/kaldi
+kaldi-opensource/kaldi
 voxo-fast/voxo-fast
+voxo-fast-opensource/voxo-fast-opensource
 voxo-dashboard/voxo-dashboard
 voxo-lib/
 voxo-daemon/voxo-daemon
+voxo-daemon-opensource/voxo-daemon
 *.docker
-voxo-daemon/majAuto/
-voxo-daemon/output/
+voxo-daemon*/majAuto/
+voxo-daemon*/output/
+
 kaldi-gst/kaldi/
 voxo-align-daemon/voxo-daemon/
 Kaldi-5039*
